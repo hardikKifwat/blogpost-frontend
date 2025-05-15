@@ -19,7 +19,9 @@ export default function Banner() {
         paddingTop: { xs: 6, md: 14 },
       }}
     >
-      <Box sx={{ maxWidth: { xs: "90%", md: 480 } }}>
+      <Box
+        sx={{ maxWidth: { xs: "90%", md: 480 }, marginTop: { xs: 10, md: 0 } }}
+      >
         {/* Category Label */}
         <Box
           sx={{
@@ -42,7 +44,12 @@ export default function Banner() {
         <Typography
           variant="h3"
           component="h1"
-          sx={{ fontWeight: 700, lineHeight: 1.2, mb: 3 }}
+          sx={{
+            fontWeight: 700,
+            lineHeight: 1.2,
+            mb: 3,
+            fontSize: { xs: "2rem", md: "3rem" },
+          }}
         >
           Richard Norton
           <br />

@@ -153,7 +153,7 @@ export default function SignInFlex() {
         <Typography
           variant="h6"
           fontWeight="bold"
-          sx={{ fontFamily: "Lora", fontSize: "20px", mb: 1 }}
+          sx={{ fontFamily: "Lora", fontSize: "20px", }}
         >
           Welcome Back 👋
         </Typography>
@@ -194,7 +194,7 @@ export default function SignInFlex() {
         <Typography
           variant="body2"
           color="text.secondary"
-          mt={3}
+          mt={1}
           sx={{ textAlign: "center" }}
         >
           Don&apos;t have an account?{" "}

@@ -175,7 +175,6 @@ export default function SignInFlex() {
         flexDirection: { xs: "column-reverse", md: "row" },
         height: { xs: "145vh", md: "100vh" },
         width: "100%",
-        overflow: "hidden",
       }}
     >
       {/* Left: Form */}
@@ -194,7 +193,7 @@ export default function SignInFlex() {
         <Typography
           variant="h6"
           fontWeight="bold"
-          sx={{ fontFamily: "Lora", fontSize: "20px", mb: 1 }}
+          sx={{ fontFamily: "Lora", fontSize: "20px",}}
         >
           Sign Up
         </Typography>
@@ -227,7 +226,7 @@ export default function SignInFlex() {
             </Box>
           ))}
 
-          <Button type="submit" sx={{ mt: 4 }} disabled={loading}>
+          <Button type="submit" sx={{ mt: 2 }} disabled={loading}>
             {loading ? "Signing up..." : "Sign Up"}
           </Button>
         </form>
@@ -235,7 +234,7 @@ export default function SignInFlex() {
         <Typography
           variant="body2"
           color="text.secondary"
-          mt={2}
+          mt={1}
           sx={{ textAlign: "center" }}
         >
           Already have an account?{" "}
@@ -245,6 +244,7 @@ export default function SignInFlex() {
               fontWeight: "bold",
               color: "#000",
               textDecoration: "none",
+              
             }}
           >
             Sign In
