@@ -12,7 +12,6 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
   page,
   onChange,
 }) => {
-  // Handler adapts MUI event signature to call onChange with page number
   const handleChange: PaginationProps["onChange"] = (event, value) => {
     onChange(value);
   };
@@ -31,12 +30,11 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
         justifyContent: "center",
         padding: "20px 0",
         "& .MuiPaginationItem-root": {
-          color: "black", // sets the text/icon color of pagination circles to black
+          color: "black",
         },
-        // Optionally, to style the selected pagination item differently:
-        "& .Mui-selected": {
-          backgroundColor: "black", // black filled circle when selected
-          color: "white", // white text/icon inside selected circle
+        "& .MuiPaginationItem-root.Mui-selected": {
+          backgroundColor: "black",
+          color: "white",
         },
       }}
     />

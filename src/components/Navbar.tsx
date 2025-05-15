@@ -8,8 +8,21 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Banner from "./Banner";
 import Link from "next/link";
+import { Logout } from "@mui/icons-material";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
+  const user = JSON.parse(
+    (typeof window !== "undefined" && localStorage.getItem("user")) || "{}"
+  );
+  const router = useRouter();
+
+  const handleLogout = () => {
+    typeof window !== "undefined" && localStorage.removeItem("token");
+    typeof window !== "undefined" && localStorage.removeItem("user");
+    router.push("/sign-in");
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -44,33 +57,53 @@ export default function Navbar() {
               letterSpacing: 2,
             }}
           >
-            LOGO
+            Blogs
           </Typography>
 
-          <Link href="/login">
-            {" "}
-            <Button
-              variant="outlined"
-              sx={{
-                color: "#000",
-                borderColor: "white",
-                borderRadius: "20px",
-                textTransform: "none",
-                background: "#fff",
-                fontSize: 14,
-                fontWeight: 600,
-                height: 32,
-                paddingX: 3,
-                transition: "background-color 0.3s ease",
-                "&:hover": {
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+          {user?.fullName ? (
+            <Box display="flex" alignItems="center">
+              <Typography
+                sx={{
+                  color: "#000",
+                  fontWeight: 600,
+                  fontSize: 14,
+                  paddingX: 3,
+                  textTransform: "capitalize",
+                }}
+              >
+                Hello,
+                <br /> {user.fullName}
+              </Typography>
+              <Logout
+                sx={{ cursor: "pointer", color: "#000" }}
+                onClick={handleLogout}
+              />
+            </Box>
+          ) : (
+            <Link href="/login">
+              <Button
+                variant="outlined"
+                sx={{
+                  color: "#000",
                   borderColor: "white",
-                },
-              }}
-            >
-              Sign In
-            </Button>
-          </Link>
+                  borderRadius: "20px",
+                  textTransform: "none",
+                  background: "#fff",
+                  fontSize: 14,
+                  fontWeight: 600,
+                  height: 32,
+                  paddingX: 3,
+                  transition: "background-color 0.3s ease",
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    borderColor: "white",
+                  },
+                }}
+              >
+                Sign In
+              </Button>
+            </Link>
+          )}
         </Toolbar>
       </AppBar>
       {/* Padding so Banner isn't hidden behind navbar */}

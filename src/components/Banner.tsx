@@ -8,7 +8,7 @@ export default function Banner() {
     <Box
       sx={{
         position: "relative",
-        height: { xs: "400px", md: "600px" },
+        height: "600px",
         backgroundImage: `url(${bannerImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -24,10 +24,12 @@ export default function Banner() {
         <Box
           sx={{
             display: "inline-block",
-            border: "1px solid white",
-            padding: "2px 10px",
-            fontSize: 12,
+            padding: "8px 10px",
+            fontSize: 10,
             fontWeight: 700,
+            fontFamily: "Inter",
+            borderRadius: 2,
+            backgroundColor: "rgba(255, 255, 255, 0.20)",
             letterSpacing: 1,
             mb: 2,
             textTransform: "uppercase",
